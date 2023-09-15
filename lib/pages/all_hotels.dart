@@ -20,14 +20,7 @@ class AllHotels extends StatelessWidget {
         ),
       ),
       body: InkWell(
-        onTap: () {
-          Get.to(
-            () => MoreDetails(
-              hotelOwner: hotelOwner,
-              color: color,
-            ),
-          );
-        },
+        onTap: () {},
         child: ListView.builder(
           itemCount: users.length,
           itemBuilder: (context, index) => Container(
