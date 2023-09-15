@@ -20,7 +20,14 @@ class AllHotels extends StatelessWidget {
         ),
       ),
       body: InkWell(
-        onTap: () {},
+        onTap: () {
+          Get.to(
+            () => MoreDetails(
+              hotelOwner: hotelOwner,
+              color: color,
+            ),
+          );
+        },
         child: ListView.builder(
           itemCount: users.length,
           itemBuilder: (context, index) => Container(
@@ -30,42 +37,44 @@ class AllHotels extends StatelessWidget {
               color: getRandomColor().withOpacity(.2),
               borderRadius: BorderRadius.circular(15),
             ),
-            child: Column(
-              children: [
-                Row(
-                  children: [
-                    Text(
-                      users[index].id.toString(),
-                      style: TextStyle(
-                        fontWeight: FontWeight.w100,
-                        fontSize: 12,
-                        color: Colors.grey[700],
+            child: Container(
+              child: Column(
+                children: [
+                  Row(
+                    children: [
+                      Text(
+                        users[index].id.toString(),
+                        style: TextStyle(
+                          fontWeight: FontWeight.w100,
+                          fontSize: 12,
+                          color: Colors.grey[700],
+                        ),
                       ),
-                    ),
-                    Text(
-                      '  ' +
-                          users[index].firstName +
-                          ' ' +
-                          users[index].lastName,
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 18,
+                      Text(
+                        '  ' +
+                            users[index].firstName +
+                            ' ' +
+                            users[index].lastName,
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18,
+                        ),
                       ),
-                    ),
-                  ],
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Text(
-                      users[index].email,
-                    ),
-                  ],
-                ),
-              ],
+                    ],
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Text(
+                        users[index].email,
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             ),
           ),
         ),
