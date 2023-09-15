@@ -19,62 +19,60 @@ class AllHotels extends StatelessWidget {
           'Tourista ',
         ),
       ),
-      body: InkWell(
-        onTap: () {
-          Get.to(
-            () => MoreDetails(
-              hotelOwner: hotelOwner,
-              color: color,
-            ),
-          );
-        },
-        child: ListView.builder(
-          itemCount: users.length,
-          itemBuilder: (context, index) => Container(
+      body: ListView.builder(
+        itemCount: users.length,
+        itemBuilder: (context, index) => InkWell(
+          onTap: () {
+            Get.to(
+              () => MoreDetails(
+                hotelOwner: users[index],
+                color: color,
+              ),
+            );
+          },
+          child: Container(
             margin: EdgeInsets.symmetric(vertical: 10, horizontal: 15),
             padding: EdgeInsets.symmetric(horizontal: 25, vertical: 15),
             decoration: BoxDecoration(
               color: getRandomColor().withOpacity(.2),
               borderRadius: BorderRadius.circular(15),
             ),
-            child: Container(
-              child: Column(
-                children: [
-                  Row(
-                    children: [
-                      Text(
-                        users[index].id.toString(),
-                        style: TextStyle(
-                          fontWeight: FontWeight.w100,
-                          fontSize: 12,
-                          color: Colors.grey[700],
-                        ),
+            child: Column(
+              children: [
+                Row(
+                  children: [
+                    Text(
+                      users[index].id.toString(),
+                      style: TextStyle(
+                        fontWeight: FontWeight.w100,
+                        fontSize: 12,
+                        color: Colors.grey[700],
                       ),
-                      Text(
-                        '  ' +
-                            users[index].firstName +
-                            ' ' +
-                            users[index].lastName,
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 18,
-                        ),
+                    ),
+                    Text(
+                      '  ' +
+                          users[index].firstName +
+                          ' ' +
+                          users[index].lastName,
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18,
                       ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Text(
-                        users[index].email,
-                      ),
-                    ],
-                  ),
-                ],
-              ),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Text(
+                      users[index].email,
+                    ),
+                  ],
+                ),
+              ],
             ),
           ),
         ),
