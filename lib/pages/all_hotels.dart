@@ -16,7 +16,7 @@ class AllHotels extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'Tourista',
+          'Tourista ',
         ),
       ),
       body: InkWell(
